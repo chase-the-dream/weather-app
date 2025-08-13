@@ -22,6 +22,9 @@ body {
 /* Header */
 h1 {
     text-align: center;
+}
+
+#title {
     background-color: var(--header);
     border-bottom: 1px var(--bg1) solid;
     padding: 0.5rem;
@@ -46,6 +49,14 @@ main {
     background-color: var(--header);
     border: 1px solid var(--bg1);
     border-radius: 4px;
+}
+
+.forecast {
+    width: 500px;
+    height: 300px;
+    border: 2px solid var(--bg1);
+    border-radius: 20px;
+    margin: 2rem auto;
 }
 
 /* Footer */
