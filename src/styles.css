@@ -52,11 +52,27 @@ main {
 }
 
 .forecast {
-    width: 500px;
-    height: 300px;
+    display: flex;
+    width: 600px;
+    flex-direction: column;
     border: 2px solid var(--bg1);
     border-radius: 20px;
     margin: 2rem auto;
+    gap: 3px;
+    padding: 1rem;
+}
+
+.forecast p {
+    max-width: 30ch;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+.forecast img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    align-self: center;
 }
 
 /* Footer */

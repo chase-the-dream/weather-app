@@ -1,6 +1,31 @@
 console.log('process.env.WEATHER_API_KEY:', process.env.WEATHER_API_KEY);
 import './styles.css';
-import sunnyIcon from './images/sunny.svg';
+
+// Weather Image Imports
+import clearDayIcon from './images/clear-day.svg';
+import clearNightIcon from './images/clear-night.svg';
+import cloudyIcon from './images/cloudy.svg';
+import fogIcon from './images/fog.svg';
+import partlyCloudyDayIcon from './images/partly-cloudy-day.svg';
+import partlyCloudyNightIcon from './images/partly-cloudy-night.svg';
+import rainIcon from './images/rain.svg';
+import snowIcon from './images/snow.svg';
+import thunderIcon from './images/thunder.svg';
+import windIcon from './images/wind.svg';
+
+// Icon mapping object
+const iconMap = {
+    'clear-day': clearDayIcon,
+    'clear-night': clearNightIcon,
+    'cloudy': cloudyIcon,
+    'fog': fogIcon,
+    'partly-cloudy-day': partlyCloudyDayIcon,
+    'partly-cloudy-night': partlyCloudyNightIcon,
+    'rain': rainIcon,
+    'snow': snowIcon,
+    'thunder': thunderIcon,
+    'wind': windIcon
+};
 
 const searchBar = document.getElementById('city');
 const submitButton = document.querySelector('.search-button');
@@ -28,13 +53,17 @@ function getData() {
         return response.json();
     })
     .then(function(response){
+        console.log(response);
+        const iconSrc = iconMap[response.currentConditions.icon] || cloudyIcon; // fallback to cloudy icon
         forecast.innerHTML = `
-            <h1>${response.address}</h1>
+            <h1>${response.resolvedAddress}</h1>
             <h1>${response.currentConditions.temp}°F</h1>
-            <img src="${sunnyIcon}" alt="image of sunshine">
-            <h2>${response.description}</h2>
-            <h3>HI: 94°F LO: 90°F</h3>
+            <img src="${iconSrc}" alt="image of weather conditions">
+            <h2>${response.currentConditions.conditions}</h2>
+            <p>${response.description}</p>
+            <h3>LO: ${response.days[0].tempmin}°F | HI: ${response.days[0].tempmax}°F</h3>
         `
     });
 }
 
+getData();
