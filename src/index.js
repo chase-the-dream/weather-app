@@ -20,7 +20,7 @@ function handleKeyPress(event) {
 
 function getData() {
     console.log("WHAT IS GOING ON RIGHT NOW");
-    const API_KEY = "EAQM2BWEDCBGMZGXUPZSULXXL";
+    const API_KEY = process.env.WEATHER_API_KEY;
 
     fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchBar.value}?key=${API_KEY}`, {mode: 'cors'})
     .then(function(response){
