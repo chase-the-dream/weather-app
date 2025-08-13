@@ -1,3 +1,4 @@
+console.log('process.env.WEATHER_API_KEY:', process.env.WEATHER_API_KEY);
 import './styles.css';
 
 const searchBar = document.getElementById('city');
