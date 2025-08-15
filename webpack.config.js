@@ -3,14 +3,18 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
 
-module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
-  },
+module.exports = (env, argv) => {
+  const isProduction = argv.mode === 'production';
+  
+  return {
+    mode: argv.mode || "development",
+    entry: "./src/index.js",
+    output: {
+      filename: "main.js",
+      path: path.resolve(__dirname, "dist"),
+      clean: true,
+      publicPath: isProduction ? '/weather-app/' : '/',
+    },
   devtool: "eval-source-map",
   devServer: {
     watchFiles: ["./src/template.html"],
@@ -39,4 +43,5 @@ module.exports = {
       },
     ],
   },
+  };
 };
