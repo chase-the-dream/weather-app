@@ -16,7 +16,6 @@ A modern weather application built with JavaScript, HTML, CSS, and Webpack that 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Build Tool**: Webpack 5 with dev server
 - **Weather API**: Visual Crossing Weather API
-- **Icons**: Custom SVG weather icons
 - **Environment Management**: dotenv-webpack for secure API key handling
 
 ## Getting Started
@@ -83,12 +82,6 @@ This app uses the Visual Crossing Weather API to fetch:
 
 The API returns detailed weather information including temperature, conditions, humidity, and weather icons that are mapped to the app's custom SVG icons.
 
-## Security
-
-- API keys are stored in environment variables using `dotenv-webpack`
-- The `keys.env` file is excluded from version control via `.gitignore`
-- All API requests use proper error handling and validation
-
 ## Contributing
 
 1. Fork the repository
@@ -99,10 +92,10 @@ The API returns detailed weather information including temperature, conditions, 
 
 ## License
 
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT Licence
 
 ## Acknowledgments
 
 - Weather data provided by [Visual Crossing](https://www.visualcrossing.com/)
-- Icons designed for weather visualization
+- Icons designed from Google for weather visualization
 - Built with modern web development best practices
