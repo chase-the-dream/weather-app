@@ -3,10 +3,6 @@
     --bg1: black;
 }
 
-[data-theme="dark"] {
-
-}
-
 * {
     margin: 0;
     box-sizing: border-box;
@@ -73,6 +69,27 @@ main {
     height: 100px;
     object-fit: contain;
     align-self: center;
+}
+
+.days-container {
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.day {
+    border: 2px var(--bg1) solid;
+    width: 120px;
+    padding: 10px 0;
+}
+
+.day img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
 
 /* Footer */

@@ -30,6 +30,7 @@ const iconMap = {
 const searchBar = document.getElementById('city');
 const submitButton = document.querySelector('.search-button');
 const forecast = document.querySelector('.forecast');
+const daysContainer = document.querySelector('.days-container');
 
 submitButton.addEventListener("click", submitClick);
 searchBar.addEventListener("keydown", handleKeyPress);
@@ -63,6 +64,26 @@ function getData() {
             <p>${response.description}</p>
             <h3>LO: ${response.days[0].tempmin}°F | HI: ${response.days[0].tempmax}°F</h3>
         `
+
+        for(let i = 1; i <= daysContainer.children.length; i++)
+        {
+            
+            const day = daysContainer.children[i-1];
+            const dayData = response.days[i];
+            const dayIcon = iconMap[dayData.icon] || cloudyIcon;
+            
+            // Convert date string to day name
+            const date = new Date(dayData.datetime);
+            const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+            
+            day.innerHTML = `
+                <h3>${dayName}</h3>
+                <img src="${dayIcon}" alt="image of weather conditions">
+                <h3>Rain: ${dayData.precipprob}%</h3>
+                <p>LO: ${dayData.tempmin}<p>
+                <p>HI: ${dayData.tempmax}<p>
+            `;
+        }
     });
 }
 
