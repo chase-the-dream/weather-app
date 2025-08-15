@@ -20,6 +20,8 @@ A modern weather application built with JavaScript, HTML, CSS, and Webpack that 
 
 ## Getting Started
 
+- You can find the site [here](https://chase-the-dream.github.io/weather-app/) or follow the following instructions
+
 ### Prerequisites
 
 - Node.js (v14 or higher)
