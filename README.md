@@ -16,7 +16,6 @@ A modern weather application built with JavaScript, HTML, CSS, and Webpack that 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Build Tool**: Webpack 5 with dev server
 - **Weather API**: Visual Crossing Weather API
-- **Environment Management**: dotenv-webpack for secure API key handling
 
 ## Getting Started
 
