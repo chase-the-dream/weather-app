@@ -2,6 +2,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -23,9 +24,14 @@ module.exports = (env, argv) => {
     new HtmlWebpackPlugin({
       template: "./src/template.html",
     }),
-    new Dotenv({
-    path: './keys.env', // or '.env' if you use that filename
-  }),
+    // Use different plugin based on environment
+    isProduction 
+      ? new webpack.DefinePlugin({
+          'process.env.WEATHER_API_KEY': JSON.stringify(process.env.WEATHER_API_KEY)
+        })
+      : new Dotenv({
+          path: './keys.env', // or '.env' if you use that filename
+        }),
   ],
   module: {
     rules: [
