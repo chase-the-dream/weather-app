@@ -86,17 +86,22 @@ main {
     margin-top: 4rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
     gap: 8px;
     padding: 0 1rem;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 .day {
     border: 2px var(--bg1) solid;
     width: clamp(100px, 25vw, 120px);
     min-width: 80px;
+    max-width: 120px;
     min-height: 120px;
+    max-height: 120px;
+    height: 120px;
     padding: 10px 5px;
     border-radius: 8px;
     text-align: center;
@@ -107,6 +112,8 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .day img {
@@ -118,6 +125,11 @@ main {
 .day p {
     font-size: clamp(0.7rem, 2.5vw, 0.9rem);
     margin-top: 0.5rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    white-space: normal;
+    max-width: 100%;
 }
 
 /* Footer */
@@ -157,41 +169,52 @@ footer {
 
 @media (max-width: 480px) {
     #city {
-        width: 85vw;
+        width: 90vw;
     }
-    
     .search-button {
-        width: 85vw;
+        width: 90vw;
         margin-top: 0.75rem;
     }
-    
     .forecast {
-        width: 88vw;
+        width: 94vw;
         border-radius: 15px;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
-    
     .days-container {
-        gap: 3px;
+        gap: 2px;
         padding: 0 0.25rem;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
-    
     .day {
-        width: clamp(70px, 18vw, 85px);
+        width: 22vw;
         min-width: 70px;
+        max-width: 90px;
         min-height: 100px;
+        max-height: 100px;
+        height: 100px;
         padding: 6px 2px;
         font-size: 0.7rem;
+        box-sizing: border-box;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
-    
     .day img {
         width: clamp(30px, 8vw, 40px);
         height: clamp(30px, 8vw, 40px);
     }
-    
     .day p {
         font-size: 0.65rem;
         line-height: 1;
         margin-top: 0.2rem;
-        word-break: break-all;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        white-space: normal;
+        max-width: 100%;
     }
 }
