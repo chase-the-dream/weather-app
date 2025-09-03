@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -58,7 +59,7 @@ main {
 
 .forecast {
     display: flex;
-    width: min(600px, 95vw);
+    width: min(600px, 90vw);
     flex-direction: column;
     border: 2px solid var(--bg1);
     border-radius: 20px;
@@ -94,8 +95,13 @@ main {
 .day {
     border: 2px var(--bg1) solid;
     width: clamp(100px, 25vw, 120px);
+    min-width: 80px;
     padding: 10px 5px;
     border-radius: 8px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .day img {
@@ -146,16 +152,16 @@ footer {
 
 @media (max-width: 480px) {
     #city {
-        width: 95vw;
+        width: 90vw;
     }
     
     .search-button {
-        width: 95vw;
+        width: 90vw;
         margin-top: 0.75rem;
     }
     
     .forecast {
-        width: 98vw;
+        width: 92vw;
         border-radius: 15px;
     }
     
@@ -165,6 +171,20 @@ footer {
     }
     
     .day {
-        width: clamp(90px, 22vw, 110px);
+        width: clamp(85px, 20vw, 100px);
+        min-width: 75px;
+        padding: 6px 2px;
+        font-size: 0.8rem;
+    }
+    
+    .day img {
+        width: clamp(35px, 10vw, 45px);
+        height: clamp(35px, 10vw, 45px);
+    }
+    
+    .day p {
+        font-size: 0.7rem;
+        line-height: 1.1;
+        margin-top: 0.3rem;
     }
 }
